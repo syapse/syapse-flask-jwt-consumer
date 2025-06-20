@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         python:
-        - 3.8
+        - 3.11
 
     steps:
     - uses: actions/checkout@v2
@@ -23,7 +23,7 @@ jobs:
         python-version: ${{ matrix.python }}
 
     - name: Cache Pypi
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: ~/.local/share/virtualenvs
         key: ${{ runner.os }}-pipenv-${{ hashFiles('Pipfile.lock') }}
